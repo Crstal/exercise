@@ -86,6 +86,5 @@ public class GPProxy {
         }
         sb.append("}" + ln);
         return sb.toString();
-
     }
 }

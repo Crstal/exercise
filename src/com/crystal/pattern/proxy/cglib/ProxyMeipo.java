@@ -26,17 +26,18 @@ public class ProxyMeipo implements MethodInterceptor {
 
     /**
      *
-     * @param o
-     * @param method
-     * @param objects
-     * @param methodProxy
+     * @param o：代理类对象
+     * @param method：目标对象方法
+     * @param objects：参数
+     * @param methodProxy：代理对象方法
      * @return
      * @throws Throwable
      */
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("开始物色");
-        Object obj = methodProxy.invokeSuper(o, objects); // 两种调用目标方法的方式
+        // 两种调用目标方法的方式
+        Object obj = methodProxy.invokeSuper(o, objects);   // 调用父类的目标方法，也就是目标方法
 //        Object obj = method.invoke(target, objects);
         System.out.println("相亲");
         return obj;
