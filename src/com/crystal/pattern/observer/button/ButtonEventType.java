@@ -1,4 +1,4 @@
-package com.crystal.pattern.observer.mouse;
+package com.crystal.pattern.observer.button;
 
 /**
  * @author: Caoyue
