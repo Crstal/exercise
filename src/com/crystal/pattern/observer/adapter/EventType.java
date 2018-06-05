@@ -1,11 +1,12 @@
 package com.crystal.pattern.observer.adapter;
 
-public enum ButtonEventType {
+public enum EventType {
 
     CLICK("click"),
-    HOVER("hover");
+    HOVER("hover"),
+    DBCLICK("dbclick");
 
-    ButtonEventType(String name) {
+    EventType(String name) {
         this.name = name;
     }
 
@@ -13,18 +14,5 @@ public enum ButtonEventType {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static ButtonEventType getEventByName(String name) {
-        for (ButtonEventType e : ButtonEventType.values()) {
-            if (e.getName().equals(name)) {
-                return e;
-            }
-        }
-        return null;
     }
 }

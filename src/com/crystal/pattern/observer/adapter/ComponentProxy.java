@@ -15,12 +15,12 @@ import java.util.*;
  */
 public class ComponentProxy implements MethodInterceptor {
 
-    private Object target;
+    private Object target;  // 源对象
 
     // 将观察者注册到被观察者的观察者列表中，当被观察者状态发生变化的时候通知观察者
     protected Map<String, Event> maps = new HashMap<>();
 
-    public void addListener(ButtonEventType eventType, Object target, Method callback) {
+    public void addListener(EventType eventType, Object target, Method callback) {
         maps.put(eventType.getName(), new Event(target, callback));   // 注册观察者
     }
 
