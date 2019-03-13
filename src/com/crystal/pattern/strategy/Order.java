@@ -1,7 +1,6 @@
 package com.crystal.pattern.strategy;
 
 import com.crystal.pattern.strategy.payport.PayType;
-import com.crystal.pattern.strategy.payport.Payment;
 
 import java.math.BigDecimal;
 
@@ -26,7 +25,7 @@ public class Order {
      * @param payType
      * @return
      */
-    public PayState pay(PayType payType) {
+    public MsgResult pay(PayType payType) {
         return payType.getPayment().pay(this.orderId, this.amount);
     }
 }

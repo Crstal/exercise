@@ -1,6 +1,6 @@
 package com.crystal.pattern.strategy.payport;
 
-import com.crystal.pattern.strategy.PayState;
+import com.crystal.pattern.strategy.MsgResult;
 
 import java.math.BigDecimal;
 
@@ -12,5 +12,5 @@ public interface Payment {
      * @param amount
      * @return
      */
-    public PayState pay(String orderId, BigDecimal amount);
+    MsgResult pay(String orderId, BigDecimal amount);
 }

@@ -5,12 +5,12 @@ package com.crystal.pattern.strategy;
  * @Description: 支付状态
  * @Date: 2018/05/26 14:44
  */
-public class PayState {
+public class MsgResult {
     private Integer code;
     private Object data;
     private String msg;
 
-    public PayState(Integer code, Object data, String msg) {
+    public MsgResult(Integer code, Object data, String msg) {
         this.code = code;
         this.data = data;
         this.msg = msg;

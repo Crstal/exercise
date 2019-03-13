@@ -1,6 +1,6 @@
 package com.crystal.pattern.strategy.payport;
 
-import com.crystal.pattern.strategy.PayState;
+import com.crystal.pattern.strategy.MsgResult;
 
 import java.math.BigDecimal;
 
@@ -11,9 +11,14 @@ import java.math.BigDecimal;
  */
 public class JDPay implements Payment {
     @Override
-    public PayState pay(String orderId, BigDecimal amount) {
+    public MsgResult pay(String orderId, BigDecimal amount) {
         System.out.println("欢迎使用京东支付");
-        System.out.println("查询账户余额，开始扣款");
-        return new PayState(200,amount,"支付成功");
+        if (amount.compareTo(new BigDecimal(500)) >= 0) {
+            System.out.println("开始扣款");
+        } else {
+            System.out.println("余额不足，支付失败");
+            return new MsgResult(500, amount, "余额不足， 支付失败");
+        }
+        return new MsgResult(200,amount,"支付成功");
     }
 }
