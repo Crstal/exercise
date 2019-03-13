@@ -25,7 +25,7 @@ public class Order {
      * @param payType
      * @return
      */
-    public MsgResult pay(PayType payType) {
-        return payType.getPayment().pay(this.orderId, this.amount);
+    public MsgResult pay(String payType) {
+        return PayType.getPayment(payType).pay(this.orderId, this.amount);
     }
 }
