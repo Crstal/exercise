@@ -7,7 +7,7 @@ package com.crystal.pattern.delegate;
  */
 public class Boss {
 
-    public static void main(String[] args) {
-        new Leader().doSomething("登录");
+    public void doSomething(String command, Leader leader) {
+        leader.doSomething(command);
     }
 }
