@@ -1,0 +1,7 @@
+@startuml
+调用类 -> LazyInnerClassSigleton: 1.第一次调用加载LazyInnerClassSigleton类
+LazyInnerClassSigleton -> 单例内部类: 2.调用getInstance()方法，加载内部类
+单例内部类 -> LazyInnerClassSigleton: 3.初始化内部类静态属性，调用外部类构造方法
+单例内部类 --> LazyInnerClassSigleton: 4.返回单例对象
+调用类 <-- LazyInnerClassSigleton: 5.返回单例对象
+@enduml
