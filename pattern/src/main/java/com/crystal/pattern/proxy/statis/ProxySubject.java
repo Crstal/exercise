@@ -13,7 +13,7 @@ public class ProxySubject implements Subject {
     public String read() {
         System.out.println("做些准备");
         String read = subject.read();
-        System.out.println("放回远处");
+        System.out.println("放回原处");
         return read;
     }
 }

@@ -7,5 +7,5 @@ package com.crystal.pattern.proxy.statis;
  */
 public interface Subject {
 
-    public String read();
+    String read();
 }

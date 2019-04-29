@@ -1,5 +1,7 @@
 package com.crystal.pattern.proxy.jdk;
 
+import com.crystal.pattern.proxy.Person;
+
 /**
  * 目标对象需要实现某个接口
  */

@@ -1,4 +1,4 @@
-package com.crystal.pattern.proxy.jdk;
+package com.crystal.pattern.proxy;
 
 /**
  * @author: Caoyue
