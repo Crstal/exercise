@@ -1,0 +1,32 @@
+@startuml
+发起展期 -[#red]> repayment:InstRepayFacade#extendInstRepayPlan
+repayment -[#red]> payaccount:获取余额
+repayment --[#red]> BiddingDebtAdjustServiceFacade#rollOversDebt发起展期
+
+合同签约 -[#blue]> assetmng:/instRepay/sendSignMsg EXTEND_LOAN_YNTRUST
+assetmng -[#blue]> agreement:com.weidai.agreement.facade.AgreementFacade#startSign
+agreement --[#blue]> assetmng
+
+上传合同 -[#yellow]> assetmng:/instRepay/uploadContract 云南信托
+assetmng -[#yellow]> agreement:com.weidai.instgate.facade.api.InstGateSubServiceFacade#uploadContractV2
+agreement --[#yellow]> assetmng
+
+发起展期 -[#green]> assetmng:/instRepay/loanExtendDeduct
+assetmng -[#green]> repayment: com.wdai.repayment.schedule.provider.repayplan.InstRepayFacade#extendInstRepayPlan
+repayment -[#green]> asscenter:com.weidai.asscenter.facade.api.debt.BiddingDebtAdjustServiceFacade#rollOversDebt
+asscenter --[#green]> repayment:
+repayment --[#green]> assetmng:
+
+
+note right of 展期试算
+支持云南信托/民生/真融宝,只有月还息到期还本的可以发起展期,最后一期可发起展期,当期微贷费用已还，当期之前不存在未收回的垫资,新费用单展期费用不低于展期本金的2%(月利率)，对公展期非存管账户余额充足
+end note
+
+note right of assetmng
+展期扣款状态：成功，失败，处理中
+end note
+
+note right of 合同签约
+云南信托展期时需上传合同
+end note
+@enduml

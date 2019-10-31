@@ -11,6 +11,8 @@
     <modules>
         <module>pattern</module>
         <module>spring</module>
+        <module>java8</module>
+        <module>thread</module>
     </modules>
 
     <properties>
